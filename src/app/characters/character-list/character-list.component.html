@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="sidebar">
+    <app-character-filter (filterChange)="applyFilters($event)"></app-character-filter>
+  </div>
+
+  <div class="content">
+    <h3>SEARCH RESULTS</h3>
+    <table class="character-table">
+      <thead>
+        <tr>
+          <th>Sl No.</th>
+          <th>Character Name</th>
+          <th>Species</th>
+          <th>Birth Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let char of filteredCharacters; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>
+            <a [routerLink]="['/characters', i+1]" target="_blank">
+              {{ char.name }}
+            </a>
+          </td>
+          <!-- <td>{{ (char.speciesNames && char.speciesNames.length ? char.speciesNames.join(', ') : 'Unknown') }}</td> -->
+           <td>{{ (char.speciesNames && char.speciesNames.length ? char.speciesNames.join(', ') : 'Unknown') }}</td>
+          <td>{{ char.birth_year }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

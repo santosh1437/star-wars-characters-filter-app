@@ -1,0 +1,47 @@
+div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+  flex: 1 1 150px;
+}
+
+input , select{
+  margin-top: 4px;
+  padding: 6px 8px;
+  border: 1px solid rgb(48, 136, 48);;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+
+
+input:focus {
+  border-color: rgb(48, 136, 48);;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgb(48, 136, 48);
+  color: #fff;
+  transition: background 0.2s ease-in-out;
+}

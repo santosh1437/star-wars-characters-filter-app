@@ -1,0 +1,32 @@
+<div>
+  <label>
+    Movie:
+    <!-- <input [(ngModel)]="filters.movie" placeholder="A New Hope"> -->
+     <select [(ngModel)]="filters.movie" >
+      <option value="">Select Movie</option>
+      <option value="A New Hope">A New Hope</option>
+      <option value="The Empire Strikes Back">The Empire Strikes Back</option>
+      <option value="Return of the Jedi">Return of the Jedi</option>
+      <option value="The Phantom Menace">The Phantom Menace</option>
+    </select>
+  </label>
+  <label>
+    Species:
+    <!-- <input [(ngModel)]="filters.species" placeholder="e.g Human"> -->
+     <select [(ngModel)]="filters.species" >
+      <option value="">Select Species</option>
+      <option value="Human">Human</option>
+      <option value="Droid">Droid</option>
+    </select>
+  </label>
+  <label>
+    Birth Year Min:
+    <input type="number" [(ngModel)]="filters.birthYearMin">
+  </label>
+  <label>
+    Birth Year Max:
+    <input type="number" [(ngModel)]="filters.birthYearMax">
+  </label>
+
+  <button (click)="apply()">Search</button>
+</div>
