@@ -18,6 +18,7 @@ import { CharacterFilterComponent } from '../character-filter/character-filter.c
 export class CharacterListComponent implements OnInit {
   characters: any[] = [];
   filteredCharacters: any[] = [];
+  displayedCharacters: any[] = [];
 
   filters = {
     movie: '',
@@ -26,11 +27,15 @@ export class CharacterListComponent implements OnInit {
     birthYearMax: null
   };
 
+   pageSize = 10;
+  currentPage = 1;
+  totalPages = 1;
+
   constructor(private characterService: CharacterService) {}
 
   ngOnInit() {
   this.characterService.getAllCharacters().subscribe(res => {
-    this.characters = res.results;
+    this.characters = res;
     console.log("this.characters::", this.characters);
     this.characters.forEach(char => {
       if (char.species.length) {
@@ -56,6 +61,8 @@ export class CharacterListComponent implements OnInit {
 
     this.filteredCharacters = this.characters;
   });
+
+  this.updatePagination();
 }
 
 applyFilters(filters: any) {
@@ -88,6 +95,9 @@ applyFilters(filters: any) {
 
     return pass;
   });
+
+  this.currentPage = 1; 
+  this.updatePagination();
 }
 
 parseBirthYear(birthYear: string): number {
@@ -98,5 +108,19 @@ parseBirthYear(birthYear: string): number {
   }
   return 0;
 }
+
+updatePagination() {
+    this.totalPages = Math.ceil(this.filteredCharacters.length / this.pageSize);
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    this.displayedCharacters = this.filteredCharacters.slice(start, end);
+  }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.updatePagination();
+    }
+  }
 
 }

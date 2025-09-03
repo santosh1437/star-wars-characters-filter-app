@@ -4,7 +4,8 @@ import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService {
-  private apiUrl = 'https://swapi.py4e.com/api/people';
+  // private apiUrl = 'https://swapi.py4e.com/api/people';
+  private apiUrl = '/api/people';
 
   constructor(private http: HttpClient) {}
 

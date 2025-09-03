@@ -67,7 +67,8 @@
               "buildTarget": "star-war:build:production"
             },
             "development": {
-              "buildTarget": "star-war:build:development"
+              "buildTarget": "star-war:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
